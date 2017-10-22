@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    item
+        android:id="@+id/app_bar_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_unseen"
+            android:icon="@drawable/ic_visibility_button"
+            android:title="Unseen"
+            android:onClick="onNavigationItemSelected"/>
+        <item
+            android:id="@+id/nav_allmessages"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="All Messages" />
+        <item
+            android:id="@+id/nav_boards"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_boardpanel" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />
+    </group>
+
+    <item android:title="Preferences">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/action_about2" />
+            <item
+                android:id="@+id/nav_send2"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/action_about3" />
+        </menu>
+    </item>
+
+</menu>
