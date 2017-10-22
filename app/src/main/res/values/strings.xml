@@ -20,8 +20,16 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="sign_out">Sign Out</string>
+
+    <string name="auth_failed">Authentication failed</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="your_mail_address">Your Mail Address</string>
+    <string name="your_password">Your Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="verify">verify</string>
+    <string name="sign_status">Sign Status:</string>
 
 </resources>

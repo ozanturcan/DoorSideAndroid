@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,60 +10,118 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ozanturcan.com.doorsidenoti.LoginActivity">
+    tools:context="ozanturcan.com.doorsidenoti.LoginActivity"
+    android:weightSum="5">
     <!-- Login progress -->
 
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
 
-    <EditText
-        android:id="@+id/emailText"
+        <EditText
+            android:id="@+id/field_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="110dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/your_mail_address"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite" />
+
+        <EditText
+            android:id="@+id/field_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/your_password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/field_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal" >
+            <Button
+                android:id="@+id/email_sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_parent"
+                android:onClick="onClick"
+                android:text="@string/sign_in"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="2" />
+
+            <Button
+                android:id="@+id/verify_email_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/button_parent"
+                android:onClick="onClick"
+                android:text="@string/verify"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="150dp"
-        android:gravity="center"
-        android:textColorHint="@color/colorWhite"
-        android:ems="10"
-        android:hint="Your Mail Address "
-        android:inputType="textEmailAddress"
-        android:textColor="@color/colorWhite" />
-
-    <EditText
-        android:id="@+id/passText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:gravity="center"
-        android:ems="10"
-        android:hint="Your Password"
-        android:inputType="textPassword"
+        android:layout_marginTop="15dp"
+        android:text="@string/sign_status"
         android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
+        android:textAlignment="center"
+        />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogleLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="40dp"
+        android:onClick="onClick"
+        app:buttonSize="wide"
+        app:colorScheme="auto" />
 
     <Button
-        android:id="@+id/btnlogin"
+        android:id="@+id/sign_out_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
-        android:background= "@drawable/button_parent"
-        android:textColor="@color/colorWhite"
-        android:text="Button" />
+        android:layout_marginTop="5dp"
+        android:background="@drawable/button_parent"
+        android:onClick="onClick"
+        android:text="@string/sign_out"
+        android:textColor="@color/colorWhite" />
 
-    <ScrollView
-        android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ScrollView>
 </LinearLayout>

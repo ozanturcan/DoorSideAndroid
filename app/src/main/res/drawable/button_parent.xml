@@ -1,5 +1,10 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <corners android:radius="1000dp" /> //your radius
-    <stroke android:width="6px" android:color="#FFF" /> //your stroke size
+    <corners
+        android:bottomRightRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        />
+    <stroke android:width="5px" android:color="#FFF" /> //your stroke size
 </shape>

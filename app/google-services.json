@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "363598943550",
+    "firebase_url": "https://doorside-7ce9b.firebaseio.com",
+    "project_id": "doorside-7ce9b",
+    "storage_bucket": "doorside-7ce9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363598943550:android:e6d179428ce1d1d6",
+        "android_client_info": {
+          "package_name": "ozanturcan.com.doorsidenoti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363598943550-octnl3klu62btq475ahppgdfleps2rpn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ozanturcan.com.doorsidenoti",
+            "certificate_hash": "49ddb3149e6f4c3004a0ee24320e7ce7846723ec"
+          }
+        },
+        {
+          "client_id": "363598943550-6kjug9flpgpcdurmbg62so5105os3qmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCklTZj2yXVy1hT4TiJCorPktyhIizoI4E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363598943550-6kjug9flpgpcdurmbg62so5105os3qmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
