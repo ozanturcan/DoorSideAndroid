@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DoorSideNoti</string>
+    <string name="app_name">Door Side Noti</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -23,13 +23,19 @@
     <string name="sign_out">Sign Out</string>
 
     <string name="auth_failed">Authentication failed</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions." </string>
     <string name="your_mail_address">Your Mail Address</string>
     <string name="your_password">Your Password</string>
     <string name="sign_in">Sign in</string>
     <string name="verify">verify</string>
     <string name="sign_status">Sign Status:</string>
+
+
+    <!-- Start Strings User Infos -->
+    <string name="user_Name" id="_userName "> </string>
+    <string name="user_Mail"> </string>
+    <string name="user_PhotoURL"> </string>
+
+    <!-- END Strings User Infos -->
 
 </resources>

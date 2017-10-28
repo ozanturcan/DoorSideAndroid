@@ -1,20 +1,36 @@
 package ozanturcan.com.doorsidenoti;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth;
+
+import ozanturcan.com.doorsidenoti.Models.UserInformation;
+import ozanturcan.com.doorsidenoti.Operations.FirebaseAuthOperations;
+import ozanturcan.com.doorsidenoti.nav_fragments.AllMessagesFragment;
+import ozanturcan.com.doorsidenoti.nav_fragments.BoardsFragment;
+import ozanturcan.com.doorsidenoti.nav_fragments.HomeFragment;
+import ozanturcan.com.doorsidenoti.nav_fragments.ToolsFragment;
+import ozanturcan.com.doorsidenoti.nav_fragments.UnseenFragment;
+
+public class MainActivity extends FirebaseAuthOperations
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG ="MainActivity:" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +56,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        android.app.FragmentManager fragmentManager=getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
+
+        ImageView userİmage = (ImageView) findViewById(R.id.NavHead_UseImage);
+
+        UserInformation MyUserInfo = new UserInformation().getAnInnerClass();
+        String a =  MyUserInfo.getPersonEmail();
+        a =  MyUserInfo.getPersonName();
+         MyUserInfo.getPersonPhoto();
+
     }
 
     @Override
@@ -67,9 +94,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -77,27 +102,53 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        android.app.FragmentManager fragmentManager=getFragmentManager();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_unseen) {
-            // Handle the camera action
-            
-        } else if (id == R.id.nav_allmessages) {
+        if (id == R.id.nav_homescreen) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
+            getSupportActionBar().setTitle("Door Side Noti");
+
+
+        }
+        else if (id == R.id.nav_unseen) {
+             fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();
+            getSupportActionBar().setTitle("Unseen");
+        }
+
+        else if (id == R.id.nav_allmessages) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame,new AllMessagesFragment()).commit();
+            getSupportActionBar().setTitle("All Messages");
 
 
         } else if (id == R.id.nav_boards) {
-            System.out.println(R.id.nav_boards);
+            fragmentManager.beginTransaction().replace(R.id.content_frame,new BoardsFragment()).commit();
+            getSupportActionBar().setTitle("My Boards");
+
         } else if (id == R.id.nav_tools) {
-            System.out.println(R.id.nav_tools);
-        } else if (id == R.id.nav_send) {
-            System.out.println(R.id.nav_send);
-        } else if (id == R.id.nav_send2) {
-            System.out.println(R.id.nav_send2);
+            fragmentManager.beginTransaction().replace(R.id.content_frame,new ToolsFragment()).commit();
+            getSupportActionBar().setTitle("Tools");
+
+        } else if (id == R.id.nav_SignOut) {
+                signOut();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == 0)
+        {
+            Log.d(TAG, "signIn:" );
+        }
+
+    }
+
 }
