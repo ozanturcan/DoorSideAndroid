@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "ozanturcan.com.doorsidenoti"
         minSdkVersion 19
@@ -34,7 +34,15 @@ dependencies {
 }
 
 
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.google.com' }
+}
 
+dependencies {
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+}
 
 
 

@@ -27,7 +27,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="140dp"
             android:ems="10"
             android:gravity="center"
             android:hint="@string/your_mail_address"
@@ -49,7 +49,8 @@
             android:hint="@string/your_password"
             android:inputType="textPassword"
             android:textColor="@color/colorWhite"
-            android:textColorHint="@color/colorWhite" />
+            android:textColorHint="@color/colorWhite"
+            android:shadowColor="@color/colorWhite"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,71 +58,47 @@
             android:layout_below="@+id/field_password"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
             <Button
                 android:id="@+id/email_sign_in_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_parent"
                 android:onClick="onClick"
                 android:text="@string/sign_in"
                 android:textColor="@color/colorWhite"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                tools:ignore="ButtonStyle" />
+
+            <TextView
+                android:id="@+id/verify_email_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="2" />
-
-            <Button
-                android:id="@+id/verify_email_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="@drawable/button_parent"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:onClick="onClick"
                 android:text="@string/verify"
                 android:textColor="@color/colorWhite"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                />
+                tools:ignore="ButtonStyle" />
+
 
         </LinearLayout>
 
     </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/sign_status"
-        android:textColor="@color/colorWhite"
-        android:textAlignment="center"
-        />
-
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_in_Google_button"
+        android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="60dp"
         android:onClick="onClick"
         app:buttonSize="wide"
         app:colorScheme="auto" />
-
-    <Button
-        android:id="@+id/sign_out_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button_parent"
-        android:onClick="onClick"
-        android:text="@string/sign_out"
-        android:textColor="@color/colorWhite" />
 
 </LinearLayout>

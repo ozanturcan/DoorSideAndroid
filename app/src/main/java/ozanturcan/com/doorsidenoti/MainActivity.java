@@ -1,6 +1,5 @@
 package ozanturcan.com.doorsidenoti;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,13 +13,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
 import ozanturcan.com.doorsidenoti.Models.UserInformation;
 import ozanturcan.com.doorsidenoti.Operations.FirebaseAuthOperations;
+import ozanturcan.com.doorsidenoti.Operations.FirebaseDatabaseOperations;
 import ozanturcan.com.doorsidenoti.nav_fragments.AllMessagesFragment;
 import ozanturcan.com.doorsidenoti.nav_fragments.BoardsFragment;
 import ozanturcan.com.doorsidenoti.nav_fragments.HomeFragment;
@@ -28,9 +30,13 @@ import ozanturcan.com.doorsidenoti.nav_fragments.ToolsFragment;
 import ozanturcan.com.doorsidenoti.nav_fragments.UnseenFragment;
 
 public class MainActivity extends FirebaseAuthOperations
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+        implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener {
+    public  TextView t ;
     private static final String TAG ="MainActivity:" ;
+    private TextView name;
+    private TextView email;
+    private ImageView imageView;
+    private  FirebaseDatabaseOperations FireDB = new FirebaseDatabaseOperations().getAnInnerClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +66,27 @@ public class MainActivity extends FirebaseAuthOperations
         android.app.FragmentManager fragmentManager=getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
 
-        ImageView userİmage = (ImageView) findViewById(R.id.NavHead_UseImage);
+
+        //
 
         UserInformation MyUserInfo = new UserInformation().getAnInnerClass();
-        String a =  MyUserInfo.getPersonEmail();
-        a =  MyUserInfo.getPersonName();
-         MyUserInfo.getPersonPhoto();
+
+
+        View header = navigationView.getHeaderView(0);
+        name = (TextView)header.findViewById(R.id.NavHead__UserName);
+        email = (TextView)header.findViewById(R.id.NavHead_UserMail);
+        imageView = header.findViewById(R.id.NavHead_UseImage);
+        name.setText( MyUserInfo.getPersonName());
+        email.setText(MyUserInfo.getPersonEmail());
+
+        if(MyUserInfo.getPersonPhoto() != null)
+        {
+            Glide.with(this).load(MyUserInfo.getPersonPhoto().toString()).apply(RequestOptions.circleCropTransform()).into(imageView);
+        }
+        mAuth = FirebaseAuth.getInstance();
+
+
+
 
     }
 
@@ -107,13 +128,14 @@ public class MainActivity extends FirebaseAuthOperations
         int id = item.getItemId();
 
         if (id == R.id.nav_homescreen) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
-            getSupportActionBar().setTitle("Door Side Noti");
+//            fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
+//            getSupportActionBar().setTitle("Door Side Noti");
 
-
+//            FireDB.FireSetData();
+            FireDB.GetCurrentUserDetail();
         }
         else if (id == R.id.nav_unseen) {
-             fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();
             getSupportActionBar().setTitle("Unseen");
         }
 
@@ -131,7 +153,10 @@ public class MainActivity extends FirebaseAuthOperations
             getSupportActionBar().setTitle("Tools");
 
         } else if (id == R.id.nav_SignOut) {
-                signOut();
+            signOut();
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -151,4 +176,12 @@ public class MainActivity extends FirebaseAuthOperations
 
     }
 
+    @Override
+    public void onClick(View v) {
+
+        int id = v.getId();
+
+
+
+    }
 }
