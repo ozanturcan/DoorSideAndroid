@@ -1,16 +1,29 @@
 package ozanturcan.com.doorsidenoti.Models;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Legend on 27.10.2017.
  */
 
 public class DeviceInformations {
 
+    static private DeviceInformations thisClass = new DeviceInformations();
+
     private String DeviceNumber;
     private String DeviceTokens;
     private String DeviceAddress;
-    private String DeviceMessages;
+    private Map <String, List<MessagesDetails>> DeviceMessages;
     private String DeviceOwner;
+    public DeviceInformations() {
+
+    }
+
+    public DeviceInformations getAnInnerClass(){
+        return thisClass;
+    }
 
     public String getDeviceNumber() {
         return DeviceNumber;
@@ -36,11 +49,11 @@ public class DeviceInformations {
         DeviceAddress = deviceAddress;
     }
 
-    public String getDeviceMessages() {
+    public Map <String, List<MessagesDetails>> getDeviceMessages() {
         return DeviceMessages;
     }
 
-    public void setDeviceMessages(String deviceMessages) {
+    public void setDeviceMessages(Map <String, List<MessagesDetails>> deviceMessages) {
         DeviceMessages = deviceMessages;
     }
 

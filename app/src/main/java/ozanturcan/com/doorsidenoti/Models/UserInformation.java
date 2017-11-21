@@ -23,17 +23,17 @@ public class UserInformation {
     private  String personEmail;
     private  String personId;
     private Uri personPhoto;
-    private  List<Integer> personDeviceIDs;
+    private  String personDeviceIDs;
 
 
 
-
-    public UserInformation getAnInnerClass(){
-        return thisClass;
-    }
 
     public UserInformation() {
 
+    }
+
+    public UserInformation getAnInnerClass(){
+        return thisClass;
     }
 
     public Map<String, String> getAllUserValue() {
@@ -45,10 +45,7 @@ public class UserInformation {
         AllUserValue.put("PersonPhoto", String.valueOf(personPhoto));
         Map ListDevice = new HashMap<String, String>();
         if (personDeviceIDs != null){
-        for (Integer item :personDeviceIDs)
-        {
-         ListDevice.put(item,item);
-        }
+
         AllUserValue.putAll(ListDevice);
         }
         return AllUserValue;
@@ -70,9 +67,9 @@ public class UserInformation {
 
     public void setPersonPhoto(Uri personPhoto) {this.personPhoto = personPhoto; }
 
-    public List<Integer> getPersonDeviceIDs() { return personDeviceIDs; }
+    public String  getPersonDeviceIDs() { return personDeviceIDs; }
 
-    public void setPersonDeviceIDs(List<Integer> personDeviceIDs) { this.personDeviceIDs = personDeviceIDs; }
+    public void setPersonDeviceIDs(String personDeviceIDs) { this.personDeviceIDs = personDeviceIDs; }
 
 
 }

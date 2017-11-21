@@ -132,7 +132,7 @@ public class MainActivity extends FirebaseAuthOperations
 //            getSupportActionBar().setTitle("Door Side Noti");
 
 //            FireDB.FireSetData();
-            FireDB.GetCurrentUserDetail();
+            FireDB.getAllMessagesFromUser();
         }
         else if (id == R.id.nav_unseen) {
             fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();

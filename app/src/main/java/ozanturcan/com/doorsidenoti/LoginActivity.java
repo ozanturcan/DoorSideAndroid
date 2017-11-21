@@ -108,7 +108,6 @@ public class LoginActivity extends FirebaseAuthOperations implements  View.OnCli
 
         } else if (id == R.id.verify_email_button) {
             // Disable button
-
             findViewById(R.id.verify_email_button).setEnabled(false);
             sendEmailVerification();
 
