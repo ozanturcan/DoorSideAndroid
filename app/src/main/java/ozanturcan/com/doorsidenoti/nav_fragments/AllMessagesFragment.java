@@ -6,20 +6,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.ExpandableListView;
-import android.widget.Toast;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupCollapseListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
 import ozanturcan.com.doorsidenoti.Adapter.ExpandableListAdapter;
 import ozanturcan.com.doorsidenoti.Models.DeviceInformations;
 import ozanturcan.com.doorsidenoti.Models.MessagesDetails;
@@ -37,12 +33,12 @@ public class AllMessagesFragment extends Fragment {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+
     private  FirebaseDatabaseOperations FireDB = new FirebaseDatabaseOperations().getAnInnerClass();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         FireDB.getAllMessagesFromUser();
-
         final  View rootview = inflater.inflate(R.layout.fragment_allmessages, container, false);
 
         // get the listview
@@ -119,9 +115,7 @@ public class AllMessagesFragment extends Fragment {
          */
     private void prepareListData() {
 
-
      Map<String,List<MessagesDetails>> DeviceMessages =  deviceInformations.getDeviceMessages();
-
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -176,6 +170,7 @@ public class AllMessagesFragment extends Fragment {
 //        listDataChild.put(listDataHeader.get(++a), nowShowing);
 //        listDataChild.put(listDataHeader.get(++a), comingSoon);
 //        }
+
 
     }
 

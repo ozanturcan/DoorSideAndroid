@@ -1,6 +1,5 @@
 package ozanturcan.com.doorsidenoti.Models;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +14,15 @@ public class DeviceInformations {
     private String DeviceNumber;
     private String DeviceTokens;
     private String DeviceAddress;
+
+    public static DeviceInformations getThisClass() {
+        return thisClass;
+    }
+
+    public static void setThisClass(DeviceInformations thisClass) {
+        DeviceInformations.thisClass = thisClass;
+    }
+
     private Map <String, List<MessagesDetails>> DeviceMessages;
     private String DeviceOwner;
     public DeviceInformations() {

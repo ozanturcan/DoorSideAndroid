@@ -1,18 +1,18 @@
 package ozanturcan.com.doorsidenoti;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,8 +36,8 @@ public class MainActivity extends FirebaseAuthOperations
     private TextView name;
     private TextView email;
     private ImageView imageView;
+    FloatingActionButton fab;
     private  FirebaseDatabaseOperations FireDB = new FirebaseDatabaseOperations().getAnInnerClass();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +49,8 @@ public class MainActivity extends FirebaseAuthOperations
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent ıntent=new Intent(MainActivity.this,MessageActivity.class);
+                startActivity(ıntent);
             }
         });
 
@@ -84,8 +84,6 @@ public class MainActivity extends FirebaseAuthOperations
             Glide.with(this).load(MyUserInfo.getPersonPhoto().toString()).apply(RequestOptions.circleCropTransform()).into(imageView);
         }
         mAuth = FirebaseAuth.getInstance();
-
-
 
 
     }
@@ -128,20 +126,23 @@ public class MainActivity extends FirebaseAuthOperations
         int id = item.getItemId();
 
         if (id == R.id.nav_homescreen) {
-//            fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
-//            getSupportActionBar().setTitle("Door Side Noti");
+              fragmentManager.beginTransaction().replace(R.id.content_frame,new HomeFragment()).commit();
+              getSupportActionBar().setTitle("Door Side Noti");
 
 //            FireDB.FireSetData();
-            FireDB.getAllMessagesFromUser();
+              FireDB.getUnseenMessagesFromUser();
         }
         else if (id == R.id.nav_unseen) {
             fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();
             getSupportActionBar().setTitle("Unseen");
+
         }
 
         else if (id == R.id.nav_allmessages) {
+
             fragmentManager.beginTransaction().replace(R.id.content_frame,new AllMessagesFragment()).commit();
             getSupportActionBar().setTitle("All Messages");
+
 
 
         } else if (id == R.id.nav_boards) {
@@ -152,11 +153,21 @@ public class MainActivity extends FirebaseAuthOperations
             fragmentManager.beginTransaction().replace(R.id.content_frame,new ToolsFragment()).commit();
             getSupportActionBar().setTitle("Tools");
 
+
         } else if (id == R.id.nav_SignOut) {
             signOut();
             Intent intent = new Intent(this,LoginActivity.class);
             startActivity(intent);
 
+        }
+        else if(id==R.id.nav_send){
+
+            new AlertDialog.Builder(this,AlertDialog.THEME_DEVICE_DEFAULT_DARK)
+                    .setIcon(R.drawable.ic_visibility_button)
+                    .setTitle("HAKKIMIZDA ")
+                    .setMessage("Bu uygulama Ozan Türcan ve Derya Yanal tarafından yapılmıştır.")
+                    .setPositiveButton("Tamam",null)
+                    .show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

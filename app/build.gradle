@@ -5,7 +5,7 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "ozanturcan.com.doorsidenoti"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -27,9 +27,14 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:design:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.firebase:firebase-auth:10.0.1'
-    compile 'com.google.android.gms:play-services-auth:10.0.1'
-    compile 'com.google.firebase:firebase-database:10.0.1'
+    compile 'com.google.firebase:firebase-auth:11.0.4'
+    compile 'com.google.android.gms:play-services-auth:11.0.4'
+    compile 'com.google.firebase:firebase-database:11.0.4'
+    compile 'me.dm7.barcodescanner:zxing:1.9'
+    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     testCompile 'junit:junit:4.12'
 }
 
@@ -50,3 +55,6 @@ dependencies {
 
 
 apply plugin: 'com.google.gms.google-services'
+dependencies {
+    implementation 'com.google.firebase:firebase-auth:11.0.4'
+}

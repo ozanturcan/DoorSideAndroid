@@ -18,6 +18,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import ozanturcan.com.doorsidenoti.Operations.FirebaseAuthOperations;
 
 public class LoginActivity extends FirebaseAuthOperations implements  View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {

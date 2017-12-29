@@ -1,56 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:padding="10dip">
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="395dp"
-            android:layout_height="278dp"
-            tools:layout_editor_absoluteX="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            android:id="@+id/constraintLayout">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:background ="@drawable/button_parent"
+            android:orientation="horizontal">
 
-            <ExpandableListView
-                android:id="@+id/expand_panel"
-                android:layout_width="379dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_margin="5dip"
 
-        </android.support.constraint.ConstraintLayout>
+                >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:background ="@color/tableColorRed"
+                android:src="@drawable/ic_menu_send"/>
+            <TextView
+                android:id="@+id/button_CurrentMessage"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background ="@color/tableColorRed"
+                android:textSize="20dp"
+                android:text="CurrentMessage" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="395dp"
-            android:layout_height="0dp"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dip"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginEnd="8dp">
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dip"
+                    android:layout_weight="0.3"
+                    >
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:background ="@color/tableColorBlue"
+                        android:src="@drawable/ic_menu_send"/>
+                    <TextView
+                    android:id="@+id/button_CurrentToken"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:background ="@color/tableColorBlue"
+                    android:text="CurrentToken"
+                    />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="5dip"
+                    android:layout_weight="0.7"
+                    >
 
-        </android.support.constraint.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/button_DeviceID"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:background ="@color/tableColorGreen"
+                        android:text="DeviceID" />
+                </LinearLayout>
 
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-    </android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dip"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+               >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dip"
+                    android:layout_weight="0.7"
+                    >
+                    <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="10dp"
+                        android:background ="@color/tableColorPurple"
+                    android:src="@drawable/ic_menu_send"/>
+                    <TextView
+                    android:id="@+id/button_totalMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:background ="@color/tableColorPurple"
+                    android:text="Total Message" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dip"
+                    android:layout_weight="0.7"
+                    >
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:background ="@color/tableColorYellow"
+                        android:src="@drawable/ic_menu_send"/>
+                    <TextView
+                        android:id="@+id/button_totalAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:background ="@color/tableColorYellow"
+                        android:text="Total Answer" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 </FrameLayout>

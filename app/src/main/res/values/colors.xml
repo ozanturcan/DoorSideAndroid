@@ -3,5 +3,11 @@
     <color name="colorPrimary">#ecab20</color>
     <color name="colorPrimaryDark">#bc8429</color>
     <color name="colorAccent">#ffff</color>
-    <color  name="colorWhite">#ffff</color>
+    <color name="colorWhite">#ffff</color>
+    <color  name="tableColorRed">#d32f2f</color>
+    <color  name="tableColorBlue">#42a5f5</color>
+    <color  name="tableColorGreen">#558b2f</color>
+    <color  name="tableColorPurple">#8e24aa</color>
+    <color  name="tableColorYellow">#ffca28</color>
+
 </resources>

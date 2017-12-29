@@ -1,14 +1,10 @@
 package ozanturcan.com.doorsidenoti.Models;
 
-import android.bluetooth.BluetoothClass;
 import android.net.Uri;
 
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
