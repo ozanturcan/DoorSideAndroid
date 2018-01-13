@@ -3,6 +3,7 @@ package ozanturcan.com.doorsidenoti;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -53,7 +54,10 @@ public class MainActivity extends FirebaseAuthOperations
                 startActivity(ıntent);
             }
         });
+        ///
 
+
+        ///
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -121,7 +125,12 @@ public class MainActivity extends FirebaseAuthOperations
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        android.app.FragmentManager fragmentManager=getFragmentManager();
+
+        Handler handlerTimer;
+
+
+
+        final android.app.FragmentManager fragmentManager=getFragmentManager();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -131,23 +140,48 @@ public class MainActivity extends FirebaseAuthOperations
 
 //            FireDB.FireSetData();
               FireDB.getUnseenMessagesFromUser();
+
         }
         else if (id == R.id.nav_unseen) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();
-            getSupportActionBar().setTitle("Unseen");
+            FireDB.getUnseenMessagesFromUser();
+            handlerTimer = new Handler();
+            handlerTimer.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    fragmentManager.beginTransaction().replace(R.id.content_frame,new UnseenFragment()).commit();
+                    getSupportActionBar().setTitle("Unseen");
+
+                }
+            },300);
+
 
         }
 
         else if (id == R.id.nav_allmessages) {
 
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new AllMessagesFragment()).commit();
-            getSupportActionBar().setTitle("All Messages");
+            FireDB.getAllMessagesFromUser();
+            handlerTimer = new Handler();
+            handlerTimer.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    fragmentManager.beginTransaction().replace(R.id.content_frame,new AllMessagesFragment()).commit();
+                    getSupportActionBar().setTitle("All Messages");
 
+                }
+            },300);
 
 
         } else if (id == R.id.nav_boards) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new BoardsFragment()).commit();
-            getSupportActionBar().setTitle("My Boards");
+            FireDB.GetBoard();
+            handlerTimer = new Handler();
+            handlerTimer.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    fragmentManager.beginTransaction().replace(R.id.content_frame,new BoardsFragment()).commit();
+                    getSupportActionBar().setTitle("My Boards");
+
+                }
+            },300);
 
         } else if (id == R.id.nav_tools) {
             fragmentManager.beginTransaction().replace(R.id.content_frame,new ToolsFragment()).commit();

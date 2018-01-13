@@ -21,9 +21,6 @@ public class UserInformation {
     private Uri personPhoto;
     private  String personDeviceIDs;
 
-
-
-
     public UserInformation() {
 
     }

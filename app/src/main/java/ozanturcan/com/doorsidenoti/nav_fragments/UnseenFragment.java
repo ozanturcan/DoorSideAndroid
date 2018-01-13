@@ -35,7 +35,7 @@ public class UnseenFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        FireDB.getUnseenMessagesFromUser();
+
 
         final  View rootview = inflater.inflate(R.layout.fragment_unseen, container, false);
 

@@ -12,8 +12,36 @@ public class DeviceInformations {
     static private DeviceInformations thisClass = new DeviceInformations();
 
     private String DeviceNumber;
+
+    public String getDeviceId() {
+        return DeviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        DeviceId = deviceId;
+    }
+
+    public String getCurrentMessage() {
+        return CurrentMessage;
+    }
+
+    public void setCurrentMessage(String currentMessage) {
+        CurrentMessage = currentMessage;
+    }
+
+    public String getCurrentToken() {
+        return CurrentToken;
+    }
+
+    public void setCurrentToken(String currentToken) {
+        CurrentToken = currentToken;
+    }
+
     private String DeviceTokens;
     private String DeviceAddress;
+    private String DeviceId;
+    private String CurrentMessage;
+    private String CurrentToken;
 
     public static DeviceInformations getThisClass() {
         return thisClass;

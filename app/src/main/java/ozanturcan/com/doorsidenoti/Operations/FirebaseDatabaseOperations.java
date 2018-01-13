@@ -37,6 +37,7 @@ public class FirebaseDatabaseOperations extends AppCompatActivity{
     }
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     private UserInformation UserInfo = new UserInformation().getAnInnerClass();
+    private DeviceInformations DeviceInfo=new DeviceInformations().getAnInnerClass();
     Context context; // before onCreate in MainActivity
 
     private DeviceInformations deviceInfo = new DeviceInformations().getAnInnerClass();
@@ -98,12 +99,31 @@ public class FirebaseDatabaseOperations extends AppCompatActivity{
         });
     }
 
+    public void GetBoard() {
+        DatabaseReference Database = FirebaseDatabase.getInstance().getReference("Devices").child(UserInfo.getPersonDeviceIDs());
+        Database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-    public void getBoard() {
+                String DeviceID = String.valueOf(dataSnapshot.child("DeviceID").getValue());
+                String CurrentMessage=(String ) dataSnapshot.child("CurrentMessage").getValue();
+                String CurrentToken=(String) dataSnapshot.child("CurrentToken").getValue();
+
+                DeviceInfo.setDeviceId(DeviceID);
+                DeviceInfo.setCurrentMessage(CurrentMessage);
+                DeviceInfo.setCurrentToken(CurrentToken);
 
 
+            }
 
+            @Override
+            public void onCancelled(DatabaseError dataSnapshot) {
+
+            }
+        });
     }
+
+
 
     public void SendMessage(final String sendingMessage, final String Token) {
 
@@ -251,4 +271,8 @@ public class FirebaseDatabaseOperations extends AppCompatActivity{
     }
 
     public void getMessageWithToken(){}
+
+
 }
+
+
