@@ -167,6 +167,85 @@ public class FirebaseDatabaseOperations extends AppCompatActivity{
         });
     }
 
+    public void sendTokenMessage(final String sSender,final String sPhone,final String sMail,final String sSubject,final String sMessage){
+        final DatabaseReference databaseReference = mDatabase.child("Devices").child(UserInfo.getPersonDeviceIDs()).child("TokenProps");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {{
+                        if (dataSnapshot.getValue() != null){
+                            databaseReference.child("Sender")
+                                    .setValue(sSender)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (!task.isSuccessful()) {
+
+                                                Log.d(TAG, "Your Message was sended");
+                                            }
+                                            else{
+
+                                            }
+                                        }
+                                    });
+                            databaseReference.child("Phone")
+                                    .setValue(sPhone)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (!task.isSuccessful()) {
+
+                                                Log.d(TAG, "writeNewUserError");
+                                            }
+                                        }
+                                    });
+                            databaseReference.child("eMail")
+                                    .setValue(sMail)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (!task.isSuccessful()) {
+
+                                                Log.d(TAG, "writeNewUserError");
+                                            }
+                                        }
+                                    });
+                            databaseReference.child("Subject")
+                                    .setValue(sSubject)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (!task.isSuccessful()) {
+
+                                                Log.d(TAG, "writeNewUserError");
+                                            }
+                                        }
+                                    });
+                            databaseReference.child("Message")
+                                    .setValue(sMessage)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (!task.isSuccessful()) {
+
+                                                Log.d(TAG, "writeNewUserError");
+                                            }
+                                        }
+                                    });
+                        };
+                    }
+                }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+
+
     public void getAllMessagesFromUser() {
         String DeviceNumber = (String) UserInfo.getPersonDeviceIDs();
         final DatabaseReference reference = mDatabase.child("Devices").child(UserInfo.getPersonDeviceIDs()).child("TokenProps");
