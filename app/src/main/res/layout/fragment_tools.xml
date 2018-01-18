@@ -4,74 +4,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:text="Scane"
-                android:id="@+id/ScannButton"
-                android:background="@color/tableColorPurple"
-                android:textColor="#fff"
-                android:layout_margin="15dp" />
-
-            <Button
-                android:id="@+id/GenerateButton"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:text="GENERATE"
-                android:background="@color/tableColorBlue"
-                android:textColor="#fff"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Input some text here ..."
+                android:text="Scann QRCode"
+                android:textStyle="bold"
+                android:layout_gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/qrInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/tableColorBlue"
-                android:ems="10">
-
-                <requestFocus />
-            </EditText>
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/ScannButton"
+                android:background="@drawable/bg_camera"
+                android:textColor="#fff"
+                android:layout_margin="15dp" />
 
         </LinearLayout>
 
 
-    </LinearLayout>
 </FrameLayout>
