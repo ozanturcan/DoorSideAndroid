@@ -9,7 +9,7 @@
     <string name="action_about2">About</string>
     <string name="action_about3">About</string>
     <string name="action_boardpanel">My Boards </string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Door Side Noti</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
