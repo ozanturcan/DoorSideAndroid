@@ -130,6 +130,7 @@ public class ToolsFragment extends Fragment implements View.OnClickListener, ZXi
             zXingScannerView.stopCamera();
     }
 
+
     @Override
     public void handleResult(Result result) {
 

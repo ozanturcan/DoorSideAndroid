@@ -42,6 +42,7 @@ public class MainActivity extends FirebaseAuthOperations
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FireDB.GetCurrentUserInfo();
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -100,6 +101,16 @@ public class MainActivity extends FirebaseAuthOperations
         } else {
             super.onBackPressed();
         }
+
+//        int count = getFragmentManager().getBackStackEntryCount();
+//
+//        if (count == 0) {
+//            super.onBackPressed();
+//            //additional code
+//        } else {
+//            getFragmentManager().popBackStack();
+//        }
+
     }
 
     @Override
@@ -175,12 +186,12 @@ public class MainActivity extends FirebaseAuthOperations
             FireDB.GetBoard();
             handlerTimer = new Handler();
             handlerTimer.postDelayed(new Runnable() {
-                @Override
+               @Override
                 public void run() {
                     fragmentManager.beginTransaction().replace(R.id.content_frame,new BoardsFragment()).commit();
                     getSupportActionBar().setTitle("My Boards");
 
-                }
+               }
             },300);
 
         } else if (id == R.id.nav_tools) {
@@ -229,4 +240,5 @@ public class MainActivity extends FirebaseAuthOperations
 
 
     }
+
 }

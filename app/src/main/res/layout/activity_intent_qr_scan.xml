@@ -1,153 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context="ozanturcan.com.doorsidenoti.IntentQrScanActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
         android:text="YOUR MESSAGE"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/lin1"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:layout_marginTop="100dp">
+        android:paddingTop="20sp"
+        android:textAlignment="center"
+        android:maxLength="20"
+        android:hint="Name Surname"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name Surname:"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp"/>
-
-        <EditText
-            android:id="@+id/edt_name"
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:background="@drawable/multiline_parent"
-           android:layout_marginLeft="9dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lin2"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edt_phone"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:layout_below="@+id/lin1"
-        android:layout_marginTop="25dp">
+        android:hint="Phone"
+        android:maxLength="11"
+        android:textAlignment="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone:"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp"/>
-
-
-        <EditText
-            android:id="@+id/edt_phone"
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:background="@drawable/multiline_parent"
-            android:layout_marginLeft="80dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lin3"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edt_mail"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:layout_below="@+id/lin2"
-        android:layout_marginTop="25dp">
+        android:hint="Mail"
+        android:maxLength="25"
+        android:textAlignment="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mail:"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp"/>
-
-
-        <EditText
-            android:id="@+id/edt_mail"
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:background="@drawable/multiline_parent"
-            android:layout_marginLeft="95dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lin4"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edt_subject"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:layout_below="@+id/lin3"
-        android:layout_marginTop="25dp">
+        android:hint="Subject"
+        android:maxLength="15"
+        android:textAlignment="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Subject:"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp"/>
-
-
-        <EditText
-            android:id="@+id/edt_subject"
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:background="@drawable/multiline_parent"
-            android:layout_marginLeft="70dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lin5"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edt_message"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:layout_below="@+id/lin4"
-        android:layout_marginTop="25dp">
+        android:hint="Message"
+        android:maxLength="100"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Message:"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp"/>
-
-
-        <EditText
-            android:id="@+id/edt_message"
-            android:layout_width="230dp"
-            android:layout_height="153dp"
-            android:background="@drawable/multiline_parent"
-            android:inputType="textMultiLine"
-            android:maxLength="100"
-            android:layout_marginLeft="55dp"/>
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/sendButton"
-        android:layout_width="150dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lin5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:background="@color/colorPrimary"
-        android:text="Send" />
+        android:text="SEND"
+        android:layout_marginTop="20dp"
+        android:background="@color/tableColorBlue"
+        android:paddingTop="20sp"/>
 
+</LinearLayout>
 
-
-</RelativeLayout>
